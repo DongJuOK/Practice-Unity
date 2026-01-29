@@ -1,0 +1,28 @@
+몬스터 헌터
+
+몬스터와 싸우는걸 구현
+
+EquipmentItem Class - 장비들의 상위 클래스 (무기, 방어구)
+
+Weapon Class - 무기 구현
+
+태도 클래스 - 웨폰 클래스 상속
+
+Armor Class - 방어구 구현 
+
+(머리, 상의, 장갑, 허리, 하의) - 아머 클래스 상속
+
+Player Class - 플레이어에 대한 정보 (닉네임, 헌터랭크 등)
+
+Monster Class - 몬스터 구현을 위한 상위 클래스 (순찰 상태, 분노 상태, 전투 상태)
+
+Inventory Class - 인벤토리 슬롯 구현
+
+Item Class - 아이템 구현 (물약)
+
+Skill Class - 방어구의 스킬 관련 구현
+
+json을 이용해 플레이어 정보를 저장
+
+
+
