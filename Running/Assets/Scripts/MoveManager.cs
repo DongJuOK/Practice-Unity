@@ -10,30 +10,37 @@ public class MoveManager : MonoBehaviour
     [SerializeField] Rigidbody charRigid;
     [SerializeField] float speed;
     [SerializeField] float m_jumpPower;
+    bool isJump;
 
     void Update()
     {
-        MoveFunc(cameraTrs);
-        MoveFunc(charTrs);
-
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            JumpFunc();
+            isJump = true;
         }
     }
 
-    private void MoveFunc(Transform trs)
+    private void FixedUpdate()
     {
-        Vector3 pos = trs.position;
-        pos.x += speed * Time.deltaTime;
-        trs.position = pos;
+        MoveFunc();
+
+        if (isJump)
+        {
+            JumpFunc();
+            isJump = false;
+        }
+    }
+
+    private void MoveFunc()
+    {
+        charRigid.velocity = new Vector3(speed, charRigid.velocity.y, charRigid.velocity.z);
     }
 
     private void JumpFunc()
     {
         // Rigidbody rigid = charTrs.GetComponent<Rigidbody>();
 
-        Vector3 power = new Vector3(0f, m_jumpPower, 0f);
+        Vector3 power = new Vector3(charRigid.velocity.x, m_jumpPower, charRigid.velocity.z);
 
         // charRigid.AddForce(power);
         charRigid.velocity = power;
