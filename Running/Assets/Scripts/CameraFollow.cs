@@ -4,13 +4,10 @@ using UnityEngine;
 
 public class CameraFollow : MonoBehaviour
 {
-    [SerializeField] Transform target;
-    [SerializeField] Vector3 offset;
     [SerializeField] float speed;
 
-    private void FixedUpdate()
+    void FixedUpdate()
     {
-        Vector3 targetPos = target.position + offset;
-        transform.position = Vector3.Lerp(transform.position, targetPos, speed * Time.deltaTime);
+        transform.position += Vector3.right * speed * Time.deltaTime;
     }
 }
