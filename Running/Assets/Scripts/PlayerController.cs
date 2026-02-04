@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    Animator animator;
     Rigidbody rb;
     [SerializeField] float jumpPower;
     bool isJump;
@@ -13,12 +14,15 @@ public class PlayerController : MonoBehaviour
     private void Awake()
     {
         rb = GetComponent<Rigidbody>();
+        animator = GetComponentInChildren<Animator>();
     }
 
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Space) && !isJump && count < 2)
         {
+            animator.SetTrigger("IsJump");
+            animator.SetBool("IsGround", false);
             JumpFunc();
         }
     }
@@ -36,5 +40,6 @@ public class PlayerController : MonoBehaviour
     {
         isJump = false;
         count = 0;
+        animator.SetBool("IsGround", true);
     }
 }

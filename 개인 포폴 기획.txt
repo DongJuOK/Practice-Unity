@@ -2,13 +2,15 @@
 
 몬스터와 싸우는걸 구현
 
+
+
 EquipmentItem Class - 장비들의 상위 클래스 (무기, 방어구)
 
 Weapon Class - 무기 구현
 
 태도 클래스 - 웨폰 클래스 상속
 
-Armor Class - 방어구 구현 
+Armor Class - 방어구 구현
 
 (머리, 상의, 장갑, 허리, 하의) - 아머 클래스 상속
 
